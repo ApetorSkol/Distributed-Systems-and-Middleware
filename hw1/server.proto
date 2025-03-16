@@ -1,0 +1,39 @@
+syntax="proto3";
+option java_multiple_files = true;
+
+package hw1.tasks;
+
+message Response {
+    string token = 1;
+    oneof data {
+        string info = 2;
+        string error = 3;
+    }
+    reserved 4 to 6;
+    oneof task {
+        UnknownTask unknownTask = 7;
+        AdderTask adderTask = 8;
+    }
+}
+
+message UnknownTask {
+}
+
+message BeginData {
+    string email = 1;
+}
+
+message AdderTask {
+    int64 a = 1;
+    float b = 2;
+}
+
+message AdderTaskResponse {
+    string token = 1;
+    double result = 2;
+}
+
+service Homework {
+    rpc Begin(BeginData) returns (Response);
+    rpc Adder(AdderTaskResponse) returns (Response);
+}

@@ -1,0 +1,9 @@
+[project]
+name = "pa053"
+description = "This project contains homeworks for course PA053 at Masaryk University in brno"
+dynamic = ["version"]
+
+dependencies = [
+        "grpcio==1.71.0",
+        "grpcio-tools==1.71.0",
+]
