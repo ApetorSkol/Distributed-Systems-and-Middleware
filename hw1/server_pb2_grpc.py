@@ -39,6 +39,11 @@ class HomeworkStub(object):
                 request_serializer=server__pb2.BeginData.SerializeToString,
                 response_deserializer=server__pb2.Response.FromString,
                 _registered_method=True)
+        self.Adder = channel.unary_unary(
+                '/hw1.tasks.Homework/Adder',
+                request_serializer=server__pb2.AdderTaskResponse.SerializeToString,
+                response_deserializer=server__pb2.Response.FromString,
+                _registered_method=True)
 
 
 class HomeworkServicer(object):
@@ -50,12 +55,23 @@ class HomeworkServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def Adder(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_HomeworkServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Begin': grpc.unary_unary_rpc_method_handler(
                     servicer.Begin,
                     request_deserializer=server__pb2.BeginData.FromString,
+                    response_serializer=server__pb2.Response.SerializeToString,
+            ),
+            'Adder': grpc.unary_unary_rpc_method_handler(
+                    servicer.Adder,
+                    request_deserializer=server__pb2.AdderTaskResponse.FromString,
                     response_serializer=server__pb2.Response.SerializeToString,
             ),
     }
@@ -85,6 +101,33 @@ class Homework(object):
             target,
             '/hw1.tasks.Homework/Begin',
             server__pb2.BeginData.SerializeToString,
+            server__pb2.Response.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Adder(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/hw1.tasks.Homework/Adder',
+            server__pb2.AdderTaskResponse.SerializeToString,
             server__pb2.Response.FromString,
             options,
             channel_credentials,
