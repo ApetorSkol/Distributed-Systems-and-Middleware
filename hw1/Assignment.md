@@ -48,3 +48,8 @@ The service is available at the host "andromeda.fi.muni.cz" on port "58110" (sho
 For the initial Begin method, use your university email (login@mail.muni.cz) so that the successful completion of the assignment will be assigned to you. After successful completion of the homework, submit your zipped source codes to IS depository https://is.muni.cz/auth/el/1433/jaro2025/PA053/ode/ode_hw1/. You will obtain the assignment points only if both the successful completion of the assingment is logged for your email and the source codes are submitted to IS.
 
 Note: The protobuf definition should be gradually extended using the instruction in the "info" data. The existing definitions from the previous steps remain the same.
+
+To generate required python files for server communication, run 
+```shell
+python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. ./server.proto
+```
