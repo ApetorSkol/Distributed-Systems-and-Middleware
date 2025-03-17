@@ -46,8 +46,24 @@ message MatrixTaskResponse {
     int64 determinant = 2;
 }
 
+message FlipLineRequest {
+    string token = 1;
+}
+
+message FlipLineResponse {
+    optional string token = 1;
+    Point point = 2;
+}
+
+message Point {
+    sint32 x = 1;
+    sint32 y = 2;
+}
+
 service Homework {
     rpc Begin(BeginData) returns (Response);
     rpc Adder(AdderTaskResponse) returns (Response);
     rpc Matrix(MatrixTaskResponse) returns (Response);
+    rpc ReadLine(FlipLineRequest) returns (stream Point);
+    rpc SendLine(stream FlipLineResponse) returns (Response);
 }

@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0cserver.proto\x12\thw1.tasks\"\xd7\x01\n\x08Response\x12\r\n\x05token\x18\x01 \x01(\t\x12\x0e\n\x04info\x18\x02 \x01(\tH\x00\x12\x0f\n\x05\x65rror\x18\x03 \x01(\tH\x00\x12-\n\x0bunknownTask\x18\x07 \x01(\x0b\x32\x16.hw1.tasks.UnknownTaskH\x01\x12)\n\tadderTask\x18\x08 \x01(\x0b\x32\x14.hw1.tasks.AdderTaskH\x01\x12+\n\nmatrixTask\x18\t \x01(\x0b\x32\x15.hw1.tasks.MatrixTaskH\x01\x42\x06\n\x04\x64\x61taB\x06\n\x04taskJ\x04\x08\x04\x10\x07\"\r\n\x0bUnknownTask\"\x1a\n\tBeginData\x12\r\n\x05\x65mail\x18\x01 \x01(\t\"!\n\tAdderTask\x12\t\n\x01\x61\x18\x01 \x01(\x03\x12\t\n\x01\x62\x18\x02 \x01(\x02\"2\n\x11\x41\x64\x64\x65rTaskResponse\x12\r\n\x05token\x18\x01 \x01(\t\x12\x0e\n\x06result\x18\x02 \x01(\x01\"L\n\nMatrixTask\x12\'\n\x04rows\x18\x01 \x03(\x0b\x32\x19.hw1.tasks.MatrixTask.Row\x1a\x15\n\x03Row\x12\x0e\n\x06values\x18\x01 \x03(\x03\"8\n\x12MatrixTaskResponse\x12\r\n\x05token\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65terminant\x18\x02 \x01(\x03\x32\xb8\x01\n\x08Homework\x12\x32\n\x05\x42\x65gin\x12\x14.hw1.tasks.BeginData\x1a\x13.hw1.tasks.Response\x12:\n\x05\x41\x64\x64\x65r\x12\x1c.hw1.tasks.AdderTaskResponse\x1a\x13.hw1.tasks.Response\x12<\n\x06Matrix\x12\x1d.hw1.tasks.MatrixTaskResponse\x1a\x13.hw1.tasks.ResponseB\x02P\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0cserver.proto\x12\thw1.tasks\"\xd7\x01\n\x08Response\x12\r\n\x05token\x18\x01 \x01(\t\x12\x0e\n\x04info\x18\x02 \x01(\tH\x00\x12\x0f\n\x05\x65rror\x18\x03 \x01(\tH\x00\x12-\n\x0bunknownTask\x18\x07 \x01(\x0b\x32\x16.hw1.tasks.UnknownTaskH\x01\x12)\n\tadderTask\x18\x08 \x01(\x0b\x32\x14.hw1.tasks.AdderTaskH\x01\x12+\n\nmatrixTask\x18\t \x01(\x0b\x32\x15.hw1.tasks.MatrixTaskH\x01\x42\x06\n\x04\x64\x61taB\x06\n\x04taskJ\x04\x08\x04\x10\x07\"\r\n\x0bUnknownTask\"\x1a\n\tBeginData\x12\r\n\x05\x65mail\x18\x01 \x01(\t\"!\n\tAdderTask\x12\t\n\x01\x61\x18\x01 \x01(\x03\x12\t\n\x01\x62\x18\x02 \x01(\x02\"2\n\x11\x41\x64\x64\x65rTaskResponse\x12\r\n\x05token\x18\x01 \x01(\t\x12\x0e\n\x06result\x18\x02 \x01(\x01\"L\n\nMatrixTask\x12\'\n\x04rows\x18\x01 \x03(\x0b\x32\x19.hw1.tasks.MatrixTask.Row\x1a\x15\n\x03Row\x12\x0e\n\x06values\x18\x01 \x03(\x03\"8\n\x12MatrixTaskResponse\x12\r\n\x05token\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65terminant\x18\x02 \x01(\x03\" \n\x0f\x46lipLineRequest\x12\r\n\x05token\x18\x01 \x01(\t\"Q\n\x10\x46lipLineResponse\x12\x12\n\x05token\x18\x01 \x01(\tH\x00\x88\x01\x01\x12\x1f\n\x05point\x18\x02 \x01(\x0b\x32\x10.hw1.tasks.PointB\x08\n\x06_token\"\x1d\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x11\x12\t\n\x01y\x18\x02 \x01(\x11\x32\xb4\x02\n\x08Homework\x12\x32\n\x05\x42\x65gin\x12\x14.hw1.tasks.BeginData\x1a\x13.hw1.tasks.Response\x12:\n\x05\x41\x64\x64\x65r\x12\x1c.hw1.tasks.AdderTaskResponse\x1a\x13.hw1.tasks.Response\x12<\n\x06Matrix\x12\x1d.hw1.tasks.MatrixTaskResponse\x1a\x13.hw1.tasks.Response\x12:\n\x08ReadLine\x12\x1a.hw1.tasks.FlipLineRequest\x1a\x10.hw1.tasks.Point0\x01\x12>\n\x08SendLine\x12\x1b.hw1.tasks.FlipLineResponse\x1a\x13.hw1.tasks.Response(\x01\x42\x02P\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -48,6 +48,12 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_MATRIXTASK_ROW']._serialized_end=451
   _globals['_MATRIXTASKRESPONSE']._serialized_start=453
   _globals['_MATRIXTASKRESPONSE']._serialized_end=509
-  _globals['_HOMEWORK']._serialized_start=512
-  _globals['_HOMEWORK']._serialized_end=696
+  _globals['_FLIPLINEREQUEST']._serialized_start=511
+  _globals['_FLIPLINEREQUEST']._serialized_end=543
+  _globals['_FLIPLINERESPONSE']._serialized_start=545
+  _globals['_FLIPLINERESPONSE']._serialized_end=626
+  _globals['_POINT']._serialized_start=628
+  _globals['_POINT']._serialized_end=657
+  _globals['_HOMEWORK']._serialized_start=660
+  _globals['_HOMEWORK']._serialized_end=968
 # @@protoc_insertion_point(module_scope)
