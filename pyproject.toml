@@ -7,4 +7,5 @@ dependencies = [
         "grpcio==1.71.0",
         "grpcio-tools==1.71.0",
         "numpy==2.2.4",
+        "zeep==4.3.1"
 ]
