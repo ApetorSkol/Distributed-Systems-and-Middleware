@@ -25,9 +25,9 @@ def process_request():
 
     # Process airport temperature request
     if airport_code:
-        if not re.match(r'^[A-Z]{3}$', airport_code):
+        if not re.match(r'^[A-Za-z]{3}$', airport_code):
             return Response("Error: Airport code should be exactly 3 uppercase letters.", status=400)
-        return get_airport_temperature(airport_code.lower())
+        return get_airport_temperature(airport_code.upper())
 
     # Process stock price request
     elif stock_id:
@@ -47,7 +47,7 @@ def get_airport_temperature(iata_code):
     """Get the temperature for a given airport IATA code."""
     try:
         # First, get the airport location information
-        airport_api_url = f"https://www.flightradar24.com/data/airports/{iata_code}/weather"
+        airport_api_url = f"http://www.airport-data.com/api/ap_info.json?iata={iata_code}"
         airport_response = requests.get(airport_api_url)
         airport_data = airport_response.json()
 
